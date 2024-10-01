@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
+
+/* Estilos del cuerpo */
+body {
+    font-family: "Waiting for the Sunrise", cursive; /* Fuente personalizada */
+    font-weight: bolder; /* Peso de la fuente */
+    font-size: xx-large; /* Tamaño de la fuente */
+    text-align: center; /* Alinear el texto al centro */
+    background-image: url(img/patron_gato.jpg); /* Imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    margin: 0; /* Elimina márgenes del body */
+    padding: 0; /* Elimina padding del body */
+}
+
+/* Estilos del tablero de juego */
+.tablero {
+    display: grid; /* Usa un layout de cuadrícula */
+    justify-content: center; /* Centra el tablero horizontalmente */
+    grid-template-columns: repeat(3, 100px); /* Tres columnas de 100px */
+    grid-template-rows: repeat(3, 100px); /* Tres filas de 100px */
+    gap: 5px; /* Espacio entre celdas */
+    margin: 20px auto; /* Margen superior/inferior de 20px y centrado horizontal */
+    padding: 50px; /* Espacio interno alrededor del tablero */
+    }
+
+/* Estilos para las celdas del tablero */
+.celda {
+    width: 100px; /* Ancho de cada celda */
+    height: 100px; /* Altura de cada celda */
+    background-color: white; /* Color de fondo de la celda */
+    border: 2px solid #333; /* Borde de la celda */
+    font-size: 2em; /* Tamaño de la fuente en la celda */
+    display: flex; /* Usar flexbox para centrar contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre la celda */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para efectos de hover */
+}
+
+/* Efecto al pasar el ratón sobre las celdas */
+.celda:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+    transform: scale(1.05); /* Escala ligeramente la celda */
+}
+
+/* Estilos para el popup de final de juego */
+.popup {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Posición fija en la pantalla */
+    left: 0; /* Alinea a la izquierda */
+    top: 0; /* Alinea en la parte superior */
+    width: 100%; /* Ancho completo de la pantalla */
+    height: 100%; /* Altura completa de la pantalla */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    animation: fadeIn 0.5s; /* Animación al aparecer */
+}
+
+/* Animación de desvanecimiento para el popup */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Comienza invisible */
+    to { opacity: 1; } /* Termina visible */
+}
+
+/* Estilos para el contenido del popup */
+.contenido-popup {
+    background-color: #fff; /* Fondo blanco */
+    padding: 30px; /* Espacio interno del popup */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para el popup */
+}
+
+/* Estilos para el botón de reinicio */
+#botonReiniciar {
+    background-color: #0c454d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 15px 32px; /* Espaciado interno */
+    text-align: center; /* Alinear texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Comportamiento de bloque en línea */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 4px 2px; /* Margen alrededor del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.3s; /* Transiciones para efectos de hover */
+}
+
+/* Efecto al pasar el ratón sobre el botón de reinicio */
+#botonReiniciar:hover {
+    background-color: #1d909f; /* Color de fondo al pasar el ratón */
+    transform: scale(1.05); /* Escala ligeramente el botón */
+}
+
+/* Estilos para el botón de cerrar el popup */
+.cerrar {
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    float: right; /* Alinear a la derecha */
+    font-size: 1.5em; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    transition: color 0.3s; /* Transición para el color */
+}
+
+/* Efecto al pasar el ratón sobre el botón de cerrar */
+.cerrar:hover {
+    color: #d9534f; /* Cambia el color al pasar el ratón */
+}
+
+/* Estilos responsivos para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .tablero {
+        grid-template-columns: repeat(3, 80px); /* Tamaño reducido de las celdas */
+        grid-template-rows: repeat(3, 80px);
+    }
+    .celda {
+        width: 80px; /* Ajustar el ancho de la celda */
+        height: 80px; /* Ajustar la altura de la celda */
+        font-size: 1.5em; /* Ajustar el tamaño de la fuente */
+    }
+}
